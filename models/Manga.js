@@ -12,7 +12,7 @@ let schema = new Schema({
     company_id:{
         type:Types.ObjectId,
 
-        ref: 'categories',
+        ref: 'companies',
 
         required:false
     },
@@ -21,7 +21,7 @@ let schema = new Schema({
     description:{type:String,required:true},
     category_id:{
         type:Types.ObjectId,
-        ref: 'users',
+        ref: 'categories',
         required:false
     },
 },{timestamps:true})
