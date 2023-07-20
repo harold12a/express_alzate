@@ -10,6 +10,7 @@ import exists_order from "../middlewares/exists_order.js"
 import passport from "../middlewares/passport.js"
 import validator from "../middlewares/validator.js"
 import schema_create from "../schemas/chapters/create.js"
+import read_one from "../controllers/chapters/read_one.js"
 
 let chaptersRouter = Router()
 
@@ -24,5 +25,9 @@ chaptersRouter.post('/',
     is_property_of,
     add_cover_photo,
     create)
+chaptersRouter.get('/:id',
+passport.authenticate('jwt', {session: false}),
+read_one)
+
 
 export default chaptersRouter
