@@ -11,7 +11,7 @@ export default async (req, res, next) => {
             return res.status(500).json({
                 success: false,
                 response: null,
-                message: 'error'
+                messages: ['error']
 
             })
         } else {

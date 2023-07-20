@@ -12,6 +12,7 @@ import validator from "../middlewares/validator.js"
 import schema_create from "../schemas/chapters/create.js"
 import read_one from "../controllers/chapters/read_one.js"
 
+
 let chaptersRouter = Router()
 
 chaptersRouter.get('/', read)
@@ -28,6 +29,5 @@ chaptersRouter.post('/',
 chaptersRouter.get('/:id',
 passport.authenticate('jwt', {session: false}),
 read_one)
-
 
 export default chaptersRouter

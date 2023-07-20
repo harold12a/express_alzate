@@ -21,7 +21,7 @@ export default async (req, res, next ) => {
 
     return res.status(400).json({
         response: null,
-        message: 'Not authorized!'
+        messages: ['Not authorized!']
     })
 
   } catch (error) {

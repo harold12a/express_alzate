@@ -7,6 +7,6 @@ export default (req, res, next) => {
     }
     return res.status(400).json({
         response: null,
-        message: 'author or company does not active'
+        messages: ['author or company does not active']
     })
 }

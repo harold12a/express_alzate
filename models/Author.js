@@ -15,7 +15,7 @@ let schema = new Schema({
         ref: 'users',
         required: true
     },
-    active: { type: Boolean, default: true }
+    active: { type: Boolean, default: false }
 }, { timestamps: true })
 
 let Author = model(collection, schema)

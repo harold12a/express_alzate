@@ -9,7 +9,7 @@ export default async (req, res, next) => {
                 user: req.user,
                 token: req.token
             },
-            message: 'signed in!'
+            messages: ['signed in!']
         });
     } catch (error) {
         return next(error);
