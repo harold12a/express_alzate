@@ -8,11 +8,12 @@ let schema = new Schema({
     last_name: { type: String, required: false },
     city: { type: String, required: true },
     country: { type: String, required: true },
-    date: { type: Date }, // por default es false si no se especifica
+    date: { type: Date, require: false }, // por default es false si no se especifica
     photo: { type: String, required: true },
+
     user_id: {
         type: Types.ObjectId, // el object id es dato especial de mongo es un string con propiedades de objetos
-        ref: 'users',
+        ref: 'authors',
         required: true
     },
     active: { type: Boolean, default: false }
@@ -21,4 +22,3 @@ let schema = new Schema({
 let Author = model(collection, schema)
 
 export default Author
-
