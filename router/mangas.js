@@ -7,6 +7,7 @@ import has_permition from "../middlewares/has_permition.js";
 import read_news from "../controllers/mangas/read_news.js";
 import passport from "../middlewares/passport.js";
 
+
 let mangasRouter = Router()
 
 mangasRouter.get('/news', passport.authenticate("jwt",{"session":false}), has_permition, read_news)
