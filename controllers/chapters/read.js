@@ -4,6 +4,7 @@ export default async (req,res,next)=>{
     try {
         let all = await Chapter.find()
 
+        
         if(all.length > 0){
             return res.status(200).json({
                 response: all,
