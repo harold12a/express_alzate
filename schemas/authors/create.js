@@ -1,14 +1,14 @@
 import joi from 'joi-oid'
 
 const schema = joi.object({
-    name: joi.string().required().min(3).messages({
+    name: joi.string().required().min(3).max(20).messages({
         "string.base" : "Name must be string",
         "string.empty" : "Name is required",
         "any.required" : "Name is required",
         'string.min' : "Name must be at least 3 characters long",
         'string.max' : "Name must be a maximum of 20 characters"
     }),
-    lastname: joi.string().empty('').min(3).messages({
+    lastname: joi.string().empty('').min(3).max(20).messages({
         "string.base" : "Last name must be string",
         'string.min' : "Last name must be at least 3 characters long",
         'string.max' : "Last name must be a maximum of 20 characters"
