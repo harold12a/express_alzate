@@ -22,7 +22,7 @@ export default async (req, res, next) => {
             pagination.limit : 0
 
         let all = await Manga.find(consultas, 'title cover_photo category_id').skip(skip).limit(limit).sort({ title: 1 }).populate('category_id', 'name')
-
+console.log(all);
         if (all.length > 0) {
             let total = await Manga.countDocuments(consultas)
             // primero cuento la cantidad de documentos encontrados 
