@@ -11,12 +11,6 @@ const schema = joi.object({
             'string.min': 'title must have at least one character',
             'string.max': 'the title must not exced 50 characters'
         }),
-    cover_photo: joi.string()
-        .min(10)
-        .required()
-        .messages({
-
-        }),
     pages: joi.string()
         .required()
         .messages({

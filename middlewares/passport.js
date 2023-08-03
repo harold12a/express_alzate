@@ -19,9 +19,9 @@ export default passport.use(
             // me permit configurar el error en el prime parametro
             // y permite continuar como el next
             try {
-                console.log(jwt_payload);
+                // console.log(jwt_payload);
                 let user = await User.findOne({ _id: jwt_payload._id })     
-                     console.log(user);
+                    //  console.log(user);
                 if (user) {    
                     delete user.password            // si encuentro el usuario autenticar
                     // elimino los datos sensibles
