@@ -10,7 +10,7 @@ import has_permition from "../middlewares/has_permition.js";
 let authorsRouter = Router()
 
 authorsRouter.post('/', passport.authenticate("jwt",{"session":false}), validator(schema_create) ,create)
-authorsRouter.get('/',read)
+authorsRouter.get('/',passport.authenticate("jwt",{"session":false}),read)
 authorsRouter.get('/me',passport.authenticate("jwt",{"session":false}), has_permition, read_me) 
 
 export default authorsRouter
