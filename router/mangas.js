@@ -13,10 +13,11 @@ import destroy from "../controllers/mangas/destroy.js";
 
 let mangasRouter = Router()
 
-mangasRouter.get('/news', passport.authenticate("jwt",{"session":false}), has_permition, read_news)
+
 mangasRouter.post('/', passport.authenticate('jwt', { session: false }),create)
 mangasRouter.post('/',passport.authenticate('jwt', { session: false }), validator(schema_create), create)
 mangasRouter.get('/',passport.authenticate('jwt', { session: false }), read)
+mangasRouter.get('/news', passport.authenticate("jwt",{session:false}), has_permition, read_news)
 mangasRouter.get('/me',passport.authenticate('jwt',{session:false}),has_permition,read_me)
 mangasRouter.put('/:id',passport.authenticate('jwt',{session:false}),update)
 mangasRouter.delete('/:id',passport.authenticate('jwt',{session:false}),destroy)
