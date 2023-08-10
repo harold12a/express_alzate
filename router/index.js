@@ -12,8 +12,8 @@ import companiesRouter from "./companies.js";
 let indexRouter = Router()
 
 indexRouter.use('/auth', authRouter)
-indexRouter.use('/authors', authorsRouter)
-indexRouter.use('/mangas', mangasRouter)
+indexRouter.use('/authors/me', authorsRouter)
+indexRouter.use('/mangas/news', mangasRouter)
 indexRouter.use('/chapters', chaptersRouter)
 indexRouter.use('/categories', categoriesRouter)
 indexRouter.use('/companies', companiesRouter)
