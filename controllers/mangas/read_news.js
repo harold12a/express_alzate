@@ -2,12 +2,13 @@ import Manga from "../../models/Manga.js"
 
 export default async (req, res, next) => {
     try {
-        let all = await Manga.find({ author_id: req.author._id })
+        let all = await Manga.find({ author_id: req.body.author_id})
+        console.log(all);
         const dataSorted = all.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         if (all.length < 4) {
             return res.status(200).json({
                 success: true,
-                response: { mangas: all, logo: "www.google.com" },
+                response: {logo: '../../src/assets/images/card-naruto.png'},
                 message: 'Mangas found!'
             })
         } else if (all.length >= 4 && all.length < 8) {       
@@ -39,3 +40,4 @@ export default async (req, res, next) => {
         next(error)
     }
 }
+
