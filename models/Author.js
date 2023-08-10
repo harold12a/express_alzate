@@ -13,7 +13,7 @@ let schema = new Schema({
 
     user_id: {
         type: Types.ObjectId, // el object id es dato especial de mongo es un string con propiedades de objetos
-        ref: 'authors',
+        ref: 'users',
         required: true
     },
     active: { type: Boolean, default: false }

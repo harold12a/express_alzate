@@ -1,6 +1,6 @@
 import { Schema,model,Types } from "mongoose";
 
-let collection = 'mangas'
+let collection = "mangas"
 
 let schema = new Schema({
   
@@ -22,7 +22,7 @@ let schema = new Schema({
     category_id:{
         type:Types.ObjectId,
         ref: 'categories',
-        required:false
+        required:true
     },
 },{timestamps:true})
 
