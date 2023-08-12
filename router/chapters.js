@@ -29,5 +29,5 @@ chaptersRouter.post('/',
 chaptersRouter.get('/:id',
 passport.authenticate('jwt', {session: false}),
 read_one)
-
+chaptersRouter.get('/', passport.authenticate('jwt',{session:false}), read)
 export default chaptersRouter
