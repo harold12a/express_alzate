@@ -13,9 +13,12 @@ import isValidPassword from "../middlewares/isValidPassword.js";
 import generateToken from "../middlewares/generateToken.js";
 import validator from "../middlewares/validator.js";
 import passport from "../middlewares/passport.js";
+import update_role_1 from "../controllers/auth/update_role_1.js";
+import has_permition from "../middlewares/has_permition.js";
 // schemas
 import register_schema from '../schemas/auth/register.js'
 import singin_schema from "../schemas/auth/singin.js";
+
 
 let authRouter = Router();
 
@@ -24,5 +27,5 @@ authRouter.post('/token', passport.authenticate('jwt', { session: false }), gene
 authRouter.post('/register', validator(register_schema), accountExist, createHash, register);
 authRouter.post('/signout', passport.authenticate('jwt', { session: false }), singout);
 authRouter.get('/', passport.authenticate('jwt', { session: false }), read);
-
+authRouter.put('/auth/role/author/:id', passport.authenticate('jwt',{session:false}),update_role_1)
 export default authRouter

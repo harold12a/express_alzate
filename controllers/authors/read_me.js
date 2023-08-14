@@ -16,7 +16,10 @@ export default async (req, res, next) => {
             return res.status(404).json({
                 success: false,
                 response: null,
-                message: 'author not found'
+                message: "Email is required"
+                    
+                
+                
             })
         }
     } catch (error) {
