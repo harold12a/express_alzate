@@ -8,7 +8,7 @@ export default async function destroy (req,res,next){
         if(one){
             return res.status(200).json({
                 success: true,
-                response: one,
+                response: one._id,
                 message: ' delete successfully'
             })
         }else{
