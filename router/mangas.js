@@ -9,6 +9,7 @@ import passport from "../middlewares/passport.js";
 import read_me from "../controllers/mangas/read_me.js"
 import update from "../controllers/mangas/update.js";
 import destroy from "../controllers/mangas/destroy.js";
+import is_message_of from "../middlewares/is_message_of.js";
 
 
 let mangasRouter = Router()
@@ -19,8 +20,8 @@ mangasRouter.post('/',passport.authenticate('jwt', { session: false }), validato
 mangasRouter.get('/',passport.authenticate('jwt', { session: false }), read)
 mangasRouter.get('/news', passport.authenticate("jwt",{session:false}), has_permition, read_news)
 mangasRouter.get('/me',passport.authenticate('jwt',{session:false}),has_permition,read_me)
-mangasRouter.put('/:id',passport.authenticate('jwt',{session:false}),update)
-mangasRouter.delete('/:id',passport.authenticate('jwt',{session:false}),destroy)
+mangasRouter.put('/:id',passport.authenticate('jwt',{session:false}),is_message_of,update)
+mangasRouter.delete('/:id',passport.authenticate('jwt',{session:false}),is_message_of,destroy)
 
 
 export default mangasRouter
