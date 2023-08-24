@@ -1,5 +1,5 @@
 const error_handler = (error,req,res,next)=>{
-    console.log(error);
+    console.log(error.message);
     return res.status(500).json({
         success:false,
         response: null,  
