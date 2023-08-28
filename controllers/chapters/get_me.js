@@ -3,11 +3,11 @@ import Chapter from '../../models/Chapter.js';
 
 export default async(req, res, next) => {
     try {
-        const all = await Chapter.find({ manga_id: req.query.manga_id})
-        if (all) {
+        const chapters = await Chapter.find({ manga_id: req.query.manga_id})
+        if (chapters.length>0) {
             return res.status(200).json({
                 success: true,
-                response: all,
+                response: chapters,
                 message: 'chapters found',
             })
         } else {
