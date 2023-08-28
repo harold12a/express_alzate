@@ -6,11 +6,14 @@ import schema_create from '../schemas/authors/create.js'
 import passport from "../middlewares/passport.js";
 import read_me from "../controllers/authors/read_me.js";
 import has_permition from "../middlewares/has_permition.js";
+import admin from "../controllers/authors/admin.js";
 
 let authorsRouter = Router()
 
 authorsRouter.post('/', passport.authenticate("jwt",{"session":false}), validator(schema_create) ,create)
 authorsRouter.get('/',passport.authenticate("jwt",{"session":false}),read)
 authorsRouter.get('/me',passport.authenticate("jwt",{"session":false}), has_permition, read_me) 
+authorsRouter.get('/authors/admin',passport.authenticate("jwt",{"session":false}), admin) 
+
 
 export default authorsRouter
