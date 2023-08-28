@@ -11,14 +11,18 @@ import passport from "../middlewares/passport.js"
 import validator from "../middlewares/validator.js"
 import schema_create from "../schemas/chapters/create.js"
 import read_one from "../controllers/chapters/read_one.js"
+import get_me from "../controllers/chapters/get_me.js"
+import update from "../controllers/chapters/update.js"
+import destroy from "../controllers/chapters/destroy.js"
+
+
 
 
 let chaptersRouter = Router()
 
-chaptersRouter.get('/', read)
 chaptersRouter.post('/',
     passport.authenticate('jwt', { session: false }),
-    validator(schema_create), 
+    validator(schema_create),
     exists_order,
     next_order,
     has_permition,
@@ -26,8 +30,24 @@ chaptersRouter.post('/',
     is_property_of,
     add_cover_photo,
     create)
+chaptersRouter.get('/', read)
+
+chaptersRouter.get('/me',
+    passport.authenticate('jwt', { session: false }),
+    has_permition,
+    get_me)
+
+chaptersRouter.delete('/:id',
+    passport.authenticate('jwt', { session: false }),
+    destroy)
+
+chaptersRouter.put('/:id',
+    passport.authenticate('jwt', { session: false }),
+    update)
+
 chaptersRouter.get('/:id',
-passport.authenticate('jwt', {session: false}),
-read_one)
+    passport.authenticate('jwt', { session: false }),
+    read_one)
+
 
 export default chaptersRouter
