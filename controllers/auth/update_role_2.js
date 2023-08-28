@@ -8,15 +8,13 @@ export default async(req,res,next)=>{
         },{
             new:true
         })
-        let company = await Company.findOneAndUpdate({user_id:req.params.id},{
-            active:true
-        },{
-            new:true
-        })
+        let company = await Company.findOne({user_id:req.params.id})
+        company.active= !company.active
+        await company.save()
         if(one){return res.status(200).json({
             success: true,
-            response : {one,company},
-            message:"Role 2 change"
+            response : company,
+            message:"Role change"
         })
     }else{
         return res.status(404).json({
